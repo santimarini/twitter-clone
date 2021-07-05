@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        <%- authCss.style %>
+    </style>
+</head>
+<body>
+
+<form action="register" method="POST">
+    <div class="container">
+        <div class="authHeader">
+            <img style="margin-left: 115px" src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png"
+                 width="80" height="80"/>
+            <h1 style="margin-left: 10px">Register on Twitter</h1>
+        </div>
+        <hr>
+        <p style="text-align: center">Please fill in this form to create an account.</p>
+        <input type="text" placeholder="Fullname" name="fullName" id="fullName" required>
+        <input type="text" placeholder="Username" name="username" id="username" required>
+        <input type="text" placeholder="Email" name="email" id="email" required>
+        <input type="password" placeholder="Password" name="password" id="password" required>
+        <input type="password" placeholder="Repeat Password" name="passwordRepeat" id="passwordRepeat" required>
+        <hr>
+        <p style="text-align: center">By creating an account you agree to our <a href="https://twitter.com/en/tos">Terms & Privacy</a>.</p>
+
+        <button type="submit" class="submitBtn">Register</button>
+    </div>
+
+    <div class="container signIn">
+        <p>Already have an account? <a href="login">Sign In</a>.</p>
+    </div>
+</form>
+
+</body>
+</html>

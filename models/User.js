@@ -26,7 +26,11 @@ const User = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       }
-    })
+    },
+    {
+      timestamps: false
+    });
+
   return User;
 };
 
