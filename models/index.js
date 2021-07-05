@@ -17,6 +17,7 @@ sequelize.authenticate()
   .then(() => {
     console.log('Connected to DB');
   });
+
 // read sync files
 fs
   .readdirSync(__dirname)
@@ -26,7 +27,7 @@ fs
     }
   )
   .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes)
+    const model = require(path.join(__dirname, file))(sequelize, DataTypes)
     db[model.name] = model;
   });
 

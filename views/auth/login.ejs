@@ -1,0 +1,32 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        <%- authCss.style %>
+    </style>
+</head>
+<body>
+
+<form action="login" method="POST">
+    <div class="container">
+        <div class="authHeader">
+            <img style="margin-left: 115px" src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png"
+                 width="80" height="80"/>
+            <h1 style="margin-left: 20px">Sign In on Twitter</h1>
+        </div>
+        <hr>
+        <p style="margin-top: 40px; text-align: center">Please fill in this form to sign in in your account.</p>
+        <div class="formFields">
+            <input type="text" placeholder="Email" name="email" id="email" required>
+            <input type="password" placeholder="Password" name="password" id="psw" required>
+            <button type="submit" class="submitBtn">Sign In</button>
+        </div>
+        <p style="margin-top: 30px; text-align: center">Fourgot your password?. <a href="register">Recovery password</a>.</p>
+    </div>
+    <div class="container signUp">
+        <p>Sign up on Twitter. <a href="register">Sign up</a>.</p>
+    </div>
+</form>
+
+</body>
+</html>
