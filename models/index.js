@@ -35,10 +35,8 @@ if (process.env.SYNC) {
   sequelize.sync().then(() => console.log("Models have been synced!"))
 }
 
-
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 
-console.log(typeof(db.User.findAll))
 module.exports = db;

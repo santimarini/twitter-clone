@@ -40,7 +40,9 @@ app.use((req, res, next) =>{
  * Routing
  */
 const auth = require("./routes/auth");
+const home = require("./routes/home");
 app.use("/auth", auth);
+app.use("/home", home);
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}!`);

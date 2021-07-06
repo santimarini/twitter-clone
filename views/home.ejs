@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        <%- title %>
+    </title>
+    <style>
+        <%- authCss.style %>
+    </style>
+</head>
+<body>
+
+<form action="home" method="POST">
+    <div class="container">
+        <div class="row">
+            <img style="margin-left: -14px;float:left"
+                 src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png"
+                 width="80px" height="80px"/>
+            <h1 style="float:left;margin-bottom: 10px">Twitter</h1>
+        </div>
+
+
+        <textarea placeholder="What's happening?" style="font-size: 15px;line-height: 20px; height: 150px" cols="10" name="tweet"
+                  id="tweet" required minlength="1" maxlength="250" default></textarea>
+        <button type="submit" class="submitBtn">Tweet</button>
+        <div style="margin-top: 50px" class="grid-container">
+            <% tweets.forEach((tweet) => { %>
+            <div class="grid-item">
+                <div class="row">
+                    <div style="float: left" class="column-tweet">
+                        <p>
+                            <strong><%= tweet.fullName %></strong>
+                        </p>
+                    </div>
+                    <div style="display: inline-block" class="column-tweet">
+                        <p style="margin-left: 5px; color:#D3D3D3; display: inline-block">@<%= tweet.username %></p>
+                    </div>
+                    <div style="display: inline-block;   float: right;" class="column-tweet">
+                        <p>
+                            <%= new Date(tweet.createdAt).toLocaleDateString() %>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <p style="text-align:left; margin-left: 10px">
+                        <%= tweet.content %>
+                    </p>
+                </div>
+                <hr>
+                <% }); %>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+</body>
+</html>
