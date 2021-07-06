@@ -12,5 +12,6 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const HomeController = require("../controllers/home");
 const controller = new HomeController();
 router.get("/", (req, res) => controller.goHome(req, res));
+router.post("/", urlencodedParser, (req, res) => controller.sendTweet(req, res));
 
 module.exports = router;
