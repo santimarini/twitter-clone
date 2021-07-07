@@ -17,7 +17,7 @@ class HomeController {
     const tweets = [
       {
         fullName: 'Santiago Marini',
-        username: 'sanrini',
+        username: 'santmarini',
         content: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.',
         createdAt: Date()
       },
