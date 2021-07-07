@@ -21,7 +21,7 @@ class HomeController {
 
     res.render("home",
       {
-        title: 'Home',
+        title: 'Twitter',
         authCss: authCss,
         tweets: tweets
       });

@@ -30,8 +30,10 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+//pass to ejs file
 app.use((req, res, next) =>{
   app.locals.signUpError = req.flash('signUpError');
+  app.locals.loginError = req.flash('loginError');
   next();
 })
 

@@ -67,7 +67,7 @@ passport.use('local-login', new LocalStrategy({
   })
 
   if (!user) {
-    return done(null, false, req.flash('loginMessage', 'Invalid user or password.'))
+    return done(null, false, req.flash('loginError', 'Invalid user or password.'))
   }
 
   await db['Login'].create({
