@@ -3,12 +3,10 @@ const passport = require("passport");
 const LocalStrategy = require('passport-local').Strategy;
 const {Op} = require("sequelize");
 
-
 passport.serializeUser((user, done) => done(null, user.id));
 passport.deserializeUser(async (id, done) => {
   const user = await db['User'].findOne({
-    where:
-      {id: id}
+    where: {id: id}
   });
   return done(null, user);
 });
@@ -57,7 +55,6 @@ passport.use('local-login', new LocalStrategy({
         }]
     }
   })
-  console.log(user);
 
   if (!user) {
     return done(null, false, req.flash('loginMessage', 'Invalid user or password.'))

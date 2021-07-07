@@ -27,7 +27,7 @@ router.post("/login", urlencodedParser, passport.authenticate('local-login', {
 router.get("/register", urlencodedParser, (req, res, next) => {
   if (!req.isAuthenticated()) return next();
   res.redirect('/home');
-}, (res, req) => controller.register(req, res));
+}, (req, res ) => controller.register(req, res));
 
 router.post("/register", urlencodedParser, passport.authenticate('local-signup', {
   successRedirect: '/home',

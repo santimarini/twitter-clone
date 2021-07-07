@@ -1,3 +1,4 @@
+const {Tweet} =require('./Tweet');
 /**
  *  Model User
  * @param {*} sequelize
@@ -11,6 +12,10 @@ const User = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
+      },
+      fullName: {
+        type: DataTypes.STRING,
+        allowNull: false
       },
       email: {
         type: DataTypes.STRING,

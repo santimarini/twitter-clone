@@ -38,5 +38,10 @@ if (process.env.SYNC) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+// database relations
+db['User'].hasMany(db.Tweet);
+db['Tweet'].belongsTo(db.User);
+
+
 
 module.exports = db;
