@@ -36,6 +36,12 @@ passport.use('local-signup', new LocalStrategy({
       email: email,
       password: password
     });
+
+    await db['Login'].create({
+      createdAt: Date(),
+      UserId: newUser.id
+    });
+
     done(null, newUser);
   }))
 
