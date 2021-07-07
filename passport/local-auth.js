@@ -17,6 +17,10 @@ passport.use('local-signup', new LocalStrategy({
     passReqToCallback: true
   },
   async (req, email, password, done) => {
+    if (password !== req.passwordRepeat) {
+      done(null, false, req.flash('signUpError', 'The passwords entered do not match.'))
+    }
+
     const user = await db['User'].findOne({
       where: {
         [Op.or]: [{
@@ -28,7 +32,7 @@ passport.use('local-signup', new LocalStrategy({
       }
     })
     if (user) {
-      done(null, false, req.flash('signUpError', 'El usuario o nombre de usuario ingresados ya están registrados.'))
+      done(null, false, req.flash('signUpError', 'The email or username entered is already registered.'))
     }
     const newUser = await db['User'].create({
       fullName: req.body.fullName,
