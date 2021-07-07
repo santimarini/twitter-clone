@@ -41,7 +41,7 @@ db.Sequelize = Sequelize;
 // database relations
 db['User'].hasMany(db.Tweet);
 db['Tweet'].belongsTo(db.User);
-
+db['User'].hasMany(db.Login);
 
 
 module.exports = db;

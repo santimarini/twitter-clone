@@ -1,11 +1,10 @@
-const {Tweet} =require('./Tweet');
 /**
  *  Model User
  * @param {*} sequelize
  * @param {*} DataTypes
  */
 const User = (sequelize, DataTypes) => {
-  const User = sequelize.define(
+  const user = sequelize.define(
     "User", // name of Model
     {
       id: {
@@ -36,7 +35,7 @@ const User = (sequelize, DataTypes) => {
       timestamps: false
     });
 
-  return User;
+  return user;
 };
 
 module.exports = User;

@@ -1,20 +1,16 @@
 /**
- *  Model Tweet
+ *  Model Login
  * @param {*} sequelize
  * @param {*} DataTypes
  */
-const Tweet = (sequelize, DataTypes) => {
-  const tweet = sequelize.define(
-    "Tweet", // name of Model
+const Login = (sequelize, DataTypes) => {
+  const login = sequelize.define(
+    "Login", // name of Model
     {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
-      },
-      content: {
-        type: DataTypes.STRING,
-        allowNull: false
       },
       createdAt: {
         type: DataTypes.DATE,
@@ -26,8 +22,7 @@ const Tweet = (sequelize, DataTypes) => {
       timestamps: false
     });
 
-  return tweet;
+  return login;
 };
 
-
-module.exports = Tweet;
+module.exports = Login;
