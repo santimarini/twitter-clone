@@ -12,7 +12,7 @@ class HomeController {
    */
   async goHome(req, res) {
     const authCss = {
-      style: fs.readFileSync('./views/auth/auth.css', 'utf8')
+      style: fs.readFileSync('./views/style.css', 'utf8')
     };
     const tweets = await db['Tweet'].findAll({
       include: [{model: db['User']}],

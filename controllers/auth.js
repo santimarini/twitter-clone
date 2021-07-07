@@ -12,7 +12,7 @@ class AuthController {
    */
   async login(req, res) {
     const authCss = {
-      style: fs.readFileSync('./views/auth/auth.css', 'utf8')
+      style: fs.readFileSync('./views/style.css', 'utf8')
     };
     res.render("auth/login",
       {
@@ -23,7 +23,7 @@ class AuthController {
 
   async register(req, res) {
     const authCss = {
-      style: fs.readFileSync('./views/auth/auth.css', 'utf8')
+      style: fs.readFileSync('./views/style.css', 'utf8')
     };
 
     res.render('auth/register', {
