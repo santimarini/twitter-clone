@@ -15,7 +15,6 @@ const app = express();
 require('./passport/local-auth');
 
 const port = 3000;
-app.use(express.static(__dirname + "/public")); // all statics files in /public
 app.set("views", path.join(__dirname, "views"));
 
 app.set("view engine", "ejs");

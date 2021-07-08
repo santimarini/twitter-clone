@@ -17,10 +17,8 @@ passport.use('local-signup', new LocalStrategy({
     passReqToCallback: true
   },
   async (req, email, password, done) => {
-    if (password !== req.body.passwordRepeat) {
-      done(null, false, req.flash('signUpError', 'The passwords entered do not match.'))
-    }
 
+    console.log("llega")
     const user = await db['User'].findOne({
       where: {
         [Op.or]: [{
@@ -31,22 +29,25 @@ passport.use('local-signup', new LocalStrategy({
           }]
       }
     })
-    if (user) {
+    if (password !== req.body.passwordRepeat) {
+      done(null, false, req.flash('signUpError', 'The passwords entered do not match.'))
+    } else if (user) {
       done(null, false, req.flash('signUpError', 'The email or username entered is already registered.'))
+    } else {
+      const newUser = await db['User'].create({
+        fullName: req.body.fullName,
+        username: req.body.username,
+        email: email,
+        password: password
+      });
+
+      await db['Login'].create({
+        createdAt: Date(),
+        UserId: newUser.id
+      });
+
+      done(null, newUser);
     }
-    const newUser = await db['User'].create({
-      fullName: req.body.fullName,
-      username: req.body.username,
-      email: email,
-      password: password
-    });
-
-    await db['Login'].create({
-      createdAt: Date(),
-      UserId: newUser.id
-    });
-
-    done(null, newUser);
   }))
 
 
