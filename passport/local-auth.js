@@ -17,7 +17,7 @@ passport.use('local-signup', new LocalStrategy({
     passReqToCallback: true
   },
   async (req, email, password, done) => {
-    if (password !== req.passwordRepeat) {
+    if (password !== req.body.passwordRepeat) {
       done(null, false, req.flash('signUpError', 'The passwords entered do not match.'))
     }
 
